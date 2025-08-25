@@ -1,12 +1,16 @@
 ````markdown
 # Capture One Barcode Tool
 
-A small utility that augments **Capture One Enterprise** by inserting a barcode image into the next photo captured during a tethered session.
+A small utility that augments **Capture One Enterprise** by inserting a barcode image into the next photo captured 
+during a tethered session.
 
 ## Components
-- **Python barcode daemon** (`main.py`) — listens on a UNIX socket and produces a JPEG barcode overlay in the Capture folder.
-- **AppleScript event handler** (`Capture One Scripts/Background Scripts/on_barcode_capture_event.scpt`) — invoked by Capture One when a barcode is scanned.
-- **Service scripts** (`Capture One Scripts/service/*.scpt`) — start/stop the daemon and open logs from the macOS Scripts menu.
+- **Python barcode daemon** (`main.py`) — listens on a UNIX socket and produces a JPEG barcode overlay in the 
+  Capture folder.
+- **AppleScript event handler** (`Capture One Scripts/Background Scripts/on_barcode_capture_event.scpt`) — 
+  invoked by Capture One when a barcode is scanned.
+- **Service scripts** (`Capture One Scripts/service/*.scpt`) — start/stop the daemon and open logs from the macOS 
+  Scripts menu.
 
 ## Features
 - Generates **Code-128** barcodes using `python-barcode`.
