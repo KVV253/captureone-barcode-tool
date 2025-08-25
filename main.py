@@ -85,7 +85,7 @@ class BarcodeGenerator:
         """Creates a barcode image in the working folder"""
         try:
             # Creating a canvas
-            canvas = Image.new('RGB', (474, 260), (255, 255, 255))
+            canvas = Image.new('RGB', (370, 260), (255, 255, 255))
             canvas.paste(self.barcode_image, (10, 10))
 
             # Saving the final image
