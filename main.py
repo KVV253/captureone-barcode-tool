@@ -48,8 +48,6 @@ class BarcodeGenerator:
         except Exception as ex:
             logger.exception(f'Failed to load font: {ex}')
 
-        self.background_color = (255, 255, 255)
-
         logger.info('BarcodeGenerator initialized.')
 
     def set_params_and_go(self, target_directory: str, barcode_data: str, next_img_name: str = 'noname_0.jpg'):
@@ -87,7 +85,7 @@ class BarcodeGenerator:
         """Creates a barcode image in the working folder"""
         try:
             # Creating a canvas
-            canvas = Image.new('RGB', (474, 260), self.background_color)
+            canvas = Image.new('RGB', (474, 260), (255, 255, 255))
             canvas.paste(self.barcode_image, (10, 10))
 
             # Saving the final image
