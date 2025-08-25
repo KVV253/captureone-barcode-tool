@@ -12,7 +12,7 @@ on:
 
 jobs:
   build-macos:
-    runs-on: macos-14  # GitHub Actions runner with Apple Silicon (ARM64)
+    runs-on: macos-14
 
     steps:
       - name: Checkout repo
@@ -40,8 +40,15 @@ jobs:
             --hidden-import=jaraco.text \
             main.py
 
+      - name: Stage binary into package layout
+        run: |
+          OUT_ROOT="pack"
+          TARGET_DIR="$OUT_ROOT/captureone-barcode-tool/Capture One Scripts/Background Scripts"
+          mkdir -p "$TARGET_DIR"
+          install -m 755 "dist/BarcodeDaemon" "$TARGET_DIR/BarcodeDaemon"
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: BarcodeDaemon-macos-arm64
-          path: dist/BarcodeDaemon
+          path: pack/captureone-barcode-tool
