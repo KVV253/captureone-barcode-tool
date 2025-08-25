@@ -1,6 +1,6 @@
 ````markdown
 # Capture One Barcode Tool
-![Sample](img_0001.jpg)
+![Sample](./img_0001.jpg)
 
 A small utility that augments **Capture One Enterprise** by inserting a barcode image into the next photo captured during a tethered session.
 
