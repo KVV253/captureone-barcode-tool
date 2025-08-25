@@ -10,7 +10,7 @@ A small utility that augments **Capture One Enterprise** by inserting a barcode 
 
 ## Features
 - Generates **Code-128** barcodes using `python-barcode`.
-- Saves barcode images (default canvas ~**474×260 px** JPEG) with consistent names in the Capture folder.
+- Saves barcode images (default canvas ~**370×260 px** JPEG) with consistent names in the Capture folder.
 - Communicates via a **UNIX domain socket** for minimal latency.
 - AppleScript helpers to **start/stop** the daemon and **tail** its log.
 
@@ -35,7 +35,14 @@ To integrate with the AppleScripts, build a single-file binary:
 
 ```bash
 pip install pyinstaller
-pyinstaller --onefile --name BarcodeDaemon main.py
+pyinstaller \
+  --name BarcodeDaemon \
+  --onefile \
+  --console \
+  --add-data "DejaVuSans-Bold.ttf:." \
+  --hidden-import=pkg_resources.py2_warn \
+  --hidden-import=jaraco.text \
+  main.py
 ```
 
 Copy the generated binary to:
@@ -51,14 +58,9 @@ Copy the generated binary to:
 Copy the **Capture One Scripts** folder from this repository to:
 
 ```
-~/Library/Scripts/
-```
-
-This will create:
-
-```
 ~/Library/Scripts/Capture One Scripts/
     ├── Background Scripts/
+    │   └── BarcodeDaemon
     │   └── on_barcode_capture_event.scpt
     └── service/
         ├── start_daemon.scpt
@@ -75,7 +77,7 @@ This will create:
    [https://support.captureone.com/hc/en-us/articles/360002663277-Barcode-Scanner-Tool-Studio-for-Enterprise?isTrial=false\&language=ru\&remainingTrial=0\&rk=\&tool=barcode\&variant=7\&version=16.6.3](https://support.captureone.com/hc/en-us/articles/360002663277-Barcode-Scanner-Tool-Studio-for-Enterprise?isTrial=false&language=ru&remainingTrial=0&rk=&tool=barcode&variant=7&version=16.6.3)
 
 3. **Next Capture Naming**
-   Use a pattern like `name_0001` (fixed-width counter), so the generated barcode image matches the upcoming shot name.
+   Use a pattern like `name_0001` (img_sequential сounter), so the generated barcode image matches the upcoming shot name.
 
 ## Usage
 
