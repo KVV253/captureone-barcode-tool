@@ -181,6 +181,3 @@ This project is released under the **MIT License**. Feel free to use, modify, an
 * **Capture One Enterprise** for AppleScript event hooks.
 
 *Happy shooting!*
-
-```
-```
