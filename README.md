@@ -82,6 +82,10 @@ Copy the **Capture One Scripts** folder from this repository to:
 
 ## Usage
 
+### Launch
+Double-click the `BarcodeDaemon`.  
+On first launch, macOS will request permissions (Accessibility, Full Disk Access). Grant them in **System Settings → Privacy & Security**.
+
 ### Start the daemon
 
 From the macOS menu bar **Script** icon choose:
@@ -167,7 +171,7 @@ captureone-barcode-tool/
 * Ensure the `BarcodeDaemon` binary is executable:
 
   ```bash
-  chmod +x ~/Library/Scripts/Capture\ One\ Scripts/Background\ Scripts/BarcodeDaemon
+  chmod +x "/Users/slava/Library/Scripts/Capture One Scripts/Background Scripts/BarcodeDaemon"
   ```
 
 ## License
