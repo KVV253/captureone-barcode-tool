@@ -1,5 +1,3 @@
-Мастер, вот цельный **README.md** на английском — одним листом.
-
 ````markdown
 # Capture One Barcode Tool
 
